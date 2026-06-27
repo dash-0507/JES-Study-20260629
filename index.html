@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JES勉強会 2026.06.29 ─ 「儲からない」物販から脱却！</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blue: #1565C0;
+            --blue-dark: #0D47A1;
+            --red: #E53935;
+            --gold: #F9A825;
+            --green: #2E7D32;
+            --orange: #E65100;
+            --bg: #F4F6FB;
+            --white: #fff;
+            --text: #1A1A2E;
+            --sub: #546E7A;
+            --border: #E0E0E0;
+            --shadow: 0 2px 14px rgba(0,0,0,.09);
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', 'Yu Gothic', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.85;
+            font-size: 18px;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--blue-dark);
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,.35);
+        }
+        .nav-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: stretch;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .nav-wrap::-webkit-scrollbar { display: none; }
+        .nav-brand {
+            color: rgba(255,255,255,.95);
+            font-weight: 900;
+            font-size: .88rem;
+            padding: .9rem 1.4rem .9rem 1.1rem;
+            border-right: 1px solid rgba(255,255,255,.18);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            letter-spacing: .3px;
+        }
+        nav a {
+            color: rgba(255,255,255,.72);
+            text-decoration: none;
+            padding: .9rem .9rem;
+            font-size: .86rem;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            transition: all .2s;
+        }
+        nav a:hover { color: #fff; border-bottom-color: var(--gold); }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(145deg, #0D47A1 0%, #1565C0 55%, #1976D2 100%);
+            color: #fff;
+            padding: 6rem 2rem 5.5rem;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: #333;
+            font-size: .88rem;
+            font-weight: 700;
+            padding: .35rem 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 1.4rem;
+        }
+        .hero h1 {
+            font-size: clamp(1.7rem, 5vw, 2.9rem);
+            font-weight: 900;
+            line-height: 1.45;
+            margin-bottom: 1.2rem;
+        }
+        .hero h1 .hl { color: var(--gold); }
+        .hero-sub { font-size: 1.1rem; opacity: .88; max-width: 640px; margin: 0 auto; }
+
+        /* ── SECTION ── */
+        section { padding: 5rem 2rem; }
+        .wrap { max-width: 1040px; margin: 0 auto; }
+        .sec-head { text-align: center; margin-bottom: 3rem; }
+        .sec-badge {
+            display: inline-block;
+            background: var(--blue-dark);
+            color: #fff;
+            font-size: .82rem;
+            font-weight: 700;
+            padding: .3rem 1.1rem;
+            border-radius: 20px;
+            margin-bottom: .75rem;
+            letter-spacing: .5px;
+        }
+        .sec-head h2 {
+            font-size: clamp(1.35rem, 3.5vw, 2rem);
+            color: var(--blue-dark);
+            line-height: 1.45;
+            margin-bottom: .6rem;
+        }
+        .sec-head p { color: var(--sub); font-size: 1rem; }
+        section.alt { background: #EEF2FF; }
+
+        /* ── GRID ── */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.8rem; }
+
+        /* ── CARDS ── */
+        .card {
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        /* ── PATTERN CARDS ── */
+        .pat-card { border-top: 4px solid var(--red); }
+        .pat-head {
+            background: #fff5f5;
+            padding: 1.2rem 1.7rem;
+            display: flex;
+            align-items: center;
+            gap: .9rem;
+        }
+        .pat-num {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--red);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: .95rem;
+            flex-shrink: 0;
+        }
+        .pat-title { font-weight: 700; font-size: 1rem; color: var(--red); line-height: 1.4; }
+        .pat-body { padding: 1.4rem 1.7rem 1.6rem; font-size: .96rem; color: var(--sub); line-height: 1.9; }
+        .pat-body strong { color: var(--text); }
+        .pat-body small { font-size: .85rem; }
+
+        /* ── CH1 COMPARE ── */
+        .compare-block { margin: 1.8rem 0; }
+        .compare-block-label {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin-bottom: 1rem;
+            padding-left: .3rem;
+        }
+        .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
+        .cmp-box { padding: 1.6rem; border-radius: 10px; }
+        .cmp-box.bad { background: #FFEBEE; border: 1.5px solid #FFCDD2; }
+        .cmp-box.good { background: #E8F5E9; border: 1.5px solid #C8E6C9; }
+        .cmp-box h4 { font-size: 1rem; font-weight: 700; margin-bottom: .75rem; }
+        .cmp-box.bad h4 { color: var(--red); }
+        .cmp-box.good h4 { color: var(--green); }
+        .cmp-box ul { font-size: .95rem; padding-left: 1.3rem; color: var(--text); }
+        .cmp-box ul li { margin-bottom: .5rem; }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #F9A825, #FB8C00);
+            color: #fff;
+            border-radius: 12px;
+            padding: 1.8rem 2.2rem;
+            margin: 1.8rem 0;
+        }
+        .highlight-box .hb-label { font-size: .82rem; font-weight: 700; letter-spacing: 1px; opacity: .85; margin-bottom: .5rem; }
+        .highlight-box p { font-size: 1.15rem; font-weight: 700; line-height: 1.7; }
+
+        /* ── CH2 PARAMS ── */
+        .params-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        @media (min-width: 600px) { .params-grid { grid-template-columns: repeat(5, 1fr); } }
+
+        .param-item {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1.3rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            box-shadow: var(--shadow);
+            transition: all .2s;
+            user-select: none;
+        }
+        .param-item:hover, .param-item.on { border-color: var(--blue); background: #E3F2FD; }
+        .param-icon { font-size: 2.1rem; margin-bottom: .5rem; }
+        .param-name { font-weight: 700; font-size: .92rem; color: var(--blue-dark); margin-bottom: .25rem; }
+        .param-tag { font-size: .8rem; color: var(--sub); }
+        .param-detail {
+            display: none;
+            background: #E3F2FD;
+            border-radius: 10px;
+            padding: 1.5rem 1.8rem;
+            margin-top: 1.2rem;
+            border-left: 4px solid var(--blue);
+        }
+        .param-detail.show { display: block; }
+        .param-detail h3 { font-size: 1.05rem; color: var(--blue-dark); margin-bottom: .6rem; }
+        .param-detail p { font-size: .96rem; color: var(--sub); line-height: 1.85; }
+
+        /* ── CH3 COST COMPARE ── */
+        .cost-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; margin: 1.8rem 0; }
+        .cost-card { border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+        .cost-card-head { padding: 1.1rem 1.6rem; font-weight: 700; font-size: 1rem; }
+        .cost-card-head.bad { background: var(--red); color: #fff; }
+        .cost-card-head.good { background: var(--green); color: #fff; }
+        .cost-card-body { background: var(--white); padding: 1.4rem 1.6rem; }
+        .cost-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .7rem 0;
+            border-bottom: 1px solid #F0F0F0;
+            font-size: .95rem;
+            gap: .5rem;
+        }
+        .cost-row:last-child { border-bottom: none; }
+        .cost-row .label { color: var(--sub); flex-shrink: 0; }
+        .cost-row .val { font-weight: 700; text-align: right; }
+        .cost-row .val.red { color: var(--red); }
+        .cost-row .val.green { color: var(--green); }
+        .cost-row .val.orange { color: var(--orange); }
+        .cost-row.summary {
+            background: #fafafa;
+            margin: .5rem -.5rem -.5rem;
+            padding: .7rem .5rem;
+            border-radius: 6px;
+            border-bottom: none;
+        }
+
+        /* ── CH4 CHECKLIST ── */
+        .checklist { display: flex; flex-direction: column; gap: 1.8rem; }
+        .check-card { border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+        .check-head {
+            background: var(--blue-dark);
+            color: #fff;
+            padding: 1.3rem 1.8rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .check-qnum {
+            background: var(--gold);
+            color: #333;
+            width: 2.3rem;
+            height: 2.3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: .92rem;
+            flex-shrink: 0;
+            margin-top: .1rem;
+        }
+        .check-head h3 { font-size: 1.02rem; line-height: 1.55; }
+        .check-body { background: var(--white); padding: 1.5rem 1.8rem; }
+        .check-desc { font-size: .96rem; color: var(--sub); margin-bottom: 1.2rem; line-height: 1.85; }
+        .check-opts { display: flex; gap: 1rem; }
+        .check-btn {
+            flex: 1;
+            padding: .85rem;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            background: var(--white);
+            cursor: pointer;
+            font-size: .97rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            transition: all .2s;
+            font-family: inherit;
+        }
+        .check-btn.yes-btn { border-color: var(--green); color: var(--green); }
+        .check-btn.yes-btn.sel { background: var(--green); color: #fff; }
+        .check-btn.no-btn { border-color: var(--red); color: var(--red); }
+        .check-btn.no-btn.sel { background: var(--red); color: #fff; }
+        .check-feedback {
+            display: none;
+            margin-top: 1rem;
+            padding: 1.1rem 1.4rem;
+            border-radius: 8px;
+            font-size: .96rem;
+            line-height: 1.8;
+        }
+        .check-feedback.pass { display: block; background: #E8F5E9; border-left: 4px solid var(--green); color: #1B5E20; }
+        .check-feedback.fail { display: block; background: #FFEBEE; border-left: 4px solid var(--red); color: #B71C1C; }
+
+        .verdict-box {
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: 0 4px 20px rgba(0,0,0,.1);
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .verdict-box h3 { font-size: 1.05rem; color: var(--sub); margin-bottom: 1.3rem; }
+        .verdict-result {
+            font-size: 1.5rem;
+            font-weight: 900;
+            border-radius: 10px;
+            padding: 1.5rem;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: .4rem;
+            transition: all .3s;
+            line-height: 1.5;
+        }
+        .verdict-result .verdict-sub { font-size: .95rem; font-weight: 400; }
+        .verdict-result.go { background: #E8F5E9; color: var(--green); }
+        .verdict-result.invest { background: #FFF8E1; color: var(--orange); }
+        .verdict-result.nogo { background: #FFEBEE; color: var(--red); }
+        .verdict-result.pending { background: #F5F7FA; color: var(--sub); }
+
+        .reset-btn {
+            margin-top: 1rem;
+            padding: .6rem 2.2rem;
+            border: 2px solid var(--blue);
+            background: var(--white);
+            color: var(--blue);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: .88rem;
+            font-weight: 700;
+            transition: all .2s;
+            font-family: inherit;
+        }
+        .reset-btn:hover { background: var(--blue); color: #fff; }
+
+        .criteria-box { background: var(--white); border-radius: 12px; padding: 1.8rem; box-shadow: var(--shadow); margin-top: 2rem; }
+        .criteria-box h3 { font-size: 1.1rem; margin-bottom: 1.2rem; color: var(--blue-dark); }
+        .criteria-list { display: flex; flex-direction: column; gap: 1rem; }
+        .criteria-item { border-radius: 8px; padding: 1.1rem 1.4rem; font-size: .97rem; }
+        .criteria-item.go { background: #E8F5E9; border-left: 4px solid var(--green); }
+        .criteria-item.invest { background: #FFF8E1; border-left: 4px solid var(--gold); }
+        .criteria-item.nogo { background: #FFEBEE; border-left: 4px solid var(--red); }
+        .criteria-item strong { display: block; margin-bottom: .3rem; }
+        .criteria-item.go strong { color: var(--green); }
+        .criteria-item.invest strong { color: var(--orange); }
+        .criteria-item.nogo strong { color: var(--red); }
+
+        /* ── PORTFOLIO ── */
+        .port-tabs { display: flex; gap: .6rem; margin-bottom: 1.8rem; flex-wrap: wrap; }
+        .port-tab {
+            padding: .65rem 1.7rem;
+            border: 2px solid var(--blue);
+            border-radius: 30px;
+            background: var(--white);
+            color: var(--blue);
+            cursor: pointer;
+            font-size: .93rem;
+            font-weight: 700;
+            transition: all .2s;
+            font-family: inherit;
+        }
+        .port-tab.on { background: var(--blue); color: #fff; }
+        .port-panel { display: none; }
+        .port-panel.on { display: block; }
+        .port-bar-wrap {
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 76px;
+            margin-bottom: 1.4rem;
+            box-shadow: var(--shadow);
+        }
+        .port-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: .92rem;
+            text-align: center;
+            line-height: 1.3;
+            transition: width .7s ease;
+            padding: 0 .4rem;
+        }
+        .port-bar.spd { background: #1565C0; }
+        .port-bar.stdy { background: #2E7D32; }
+        .port-bar.niche { background: #F9A825; color: #333; }
+        .port-legend { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.3rem; }
+        .leg-item { display: flex; align-items: center; gap: .5rem; font-size: .93rem; }
+        .leg-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+        .port-advice {
+            background: #E3F2FD;
+            border-left: 4px solid var(--blue);
+            border-radius: 8px;
+            padding: 1.3rem 1.6rem;
+            font-size: .97rem;
+            line-height: 1.85;
+        }
+        .port-advice strong { color: var(--blue-dark); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--blue-dark);
+            color: rgba(255,255,255,.6);
+            text-align: center;
+            padding: 2.5rem 1rem;
+            font-size: .82rem;
+        }
+        footer p + p { margin-top: .5rem; font-size: .75rem; }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+        .reveal.vis { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 560px) {
+            .compare-row, .cost-compare, .grid-2 { grid-template-columns: 1fr; }
+            .check-opts { flex-direction: column; }
+        }
+
+        @media print {
+            nav, .check-opts, .reset-btn, .port-tabs { display: none; }
+            .reveal { opacity: 1; transform: none; }
+            .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+    <div class="nav-wrap">
+        <div class="nav-brand">JES勉強会 2026.06.29</div>
+        <a href="#intro">🚨 導入</a>
+        <a href="#ch1">第1章</a>
+        <a href="#ch2">第2章</a>
+        <a href="#ch3">第3章</a>
+        <a href="#ch4">✅ チェックシート</a>
+        <a href="#portfolio">📊 ポートフォリオ</a>
+    </div>
+</nav>
+
+<!-- ── HERO ── -->
+<header class="hero">
+    <div class="hero-badge">JES勉強会 2026.06.29</div>
+    <h1>
+        「<span class="hl">儲からない</span>」物販の現実から脱却！
+    </h1>
+    <p class="hero-sub">対象：eBayスクール受講生（初心者〜中級者）</p>
+</header>
+
+<!-- ── 導入：3大パターン ── -->
+<section id="intro">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-badge">🚨 導入</div>
+            <h2>誰もがハマる「儲からない物販」の3大パターン</h2>
+            <p>あなたはこのどれかに当てはまっていませんか？</p>
+        </div>
+        <div class="grid-3">
+            <div class="card pat-card reveal">
+                <div class="pat-head">
+                    <div class="pat-num">1</div>
+                    <div class="pat-title">「利益率の呪縛」に踊らされるセラー</div>
+                </div>
+                <div class="pat-body">
+                    「2000円で仕入れたものが10000円で売れた！利益8000円、利益率80%の爆益だ！」と喜んでいませんか？<br><br>
+                    しかしそれにかかる費用は<br>
+                    ・eBay手数料　約15%　1,500円<br>
+                    ・送料　クーリエ4,000円<br>
+                    ・仕入・検品・撮影・出品・発送にかかる間接コスト　仮に2,000円<br><br>
+                    を差し引くと<strong>営業利益500円</strong>。月利30万円には<strong>600の販売数</strong>が必要。<br>
+                    これがベースになってしまうと自分のHPが削られていきます。<br>
+                    <small style="opacity:.8;">※低額品をメインにするのであれば、大量販売・適切な商品カテゴリー選定・工数の効率化・組織化が必須となります。</small>
+                </div>
+            </div>
+            <div class="card pat-card reveal">
+                <div class="pat-head">
+                    <div class="pat-num">2</div>
+                    <div class="pat-title">「高額品と同じ時間」を低額品に奪われるセラー</div>
+                </div>
+                <div class="pat-body">
+                    低額商品なのに、検品・撮影・説明文・梱包・発送・バイヤー対応にかかる<strong>工数は高額品とまったく同じ</strong>。<br><br>
+                    扱えば扱うほど、自分のHPが削られていきます。<br><br>
+                    <small style="opacity:.8;">※低額品をメインにするのであれば、大量販売・適切な商品カテゴリー選定・工数の効率化・組織化が必須となります。</small>
+                </div>
+            </div>
+            <div class="card pat-card reveal">
+                <div class="pat-head">
+                    <div class="pat-num">3</div>
+                    <div class="pat-title">「高く売るこだわり」でキャッシュとSEOを殺すセラー</div>
+                </div>
+                <div class="pat-body">
+                    「極上美品だから最高値でじっくり待とう」と在庫を長期滞留させていませんか？<br><br>
+                    資金がロックされるだけでなく、eBayアルゴリズム（Cassini）が重視する<strong>「出品頻度・活動性」がストップ</strong>し、ストア全体の露出が死んでいきます。
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 第1章 ── -->
+<section id="ch1" class="alt">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-badge">第1章</div>
+            <h2>「最高値でも売れそう」「最安値じゃないと売れない」という妄想</h2>
+        </div>
+
+        <!-- 比較ブロック1：アカウント強度 -->
+        <div class="compare-block reveal">
+            <div class="compare-block-label">なぜ同じ商品・同じコンディションなのに、2割以上高く売れるセラーが存在するのか？</div>
+            <div class="compare-row">
+                <div class="cmp-box bad">
+                    <h4>❌ 「アカウント強度」を客観視できていないセラー</h4>
+                    <ul>
+                        <li>トップセラーの価格だけを真似して出品し、在庫を腐らせる</li>
+                        <li>テラピークの「最高値」を見て仕入れ、売れずに結局最安値まで下げる</li>
+                        <li>アカウントが弱いのに「出品すればいつかは売れる」と放置する</li>
+                        <li>評価数や販売実績を増やすための「アカウントへの投資意識」がゼロ</li>
+                    </ul>
+                </div>
+                <div class="cmp-box good">
+                    <h4>✅ 「アカウント強度」で戦うセラー</h4>
+                    <ul>
+                        <li>同じ商品でも2割以上高く売れる</li>
+                        <li>検索上位に残り続けるため先に売れる</li>
+                        <li>バイヤーが「安心感・専門性」に対価を払う</li>
+                        <li>育てるほど販売相場をコントロールできる</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 比較ブロック2：出品品質 -->
+        <div class="compare-block reveal" style="margin-top:2rem;">
+            <div class="compare-block-label">なぜ同じアカウントレベルなのに、自分より先に売れるセラーが存在するのか？</div>
+            <div class="compare-row">
+                <div class="cmp-box bad">
+                    <h4>❌ 「商品の価値」だけで戦うセラー</h4>
+                    <ul>
+                        <li>最安値競争（赤い海）に参加し続ける</li>
+                        <li>価格を下げるしか差別化できない</li>
+                        <li>利益が削られ続ける「労働の罠」にはまる</li>
+                        <li>努力するほど状況が悪化する</li>
+                    </ul>
+                </div>
+                <div class="cmp-box good">
+                    <h4>✅ 「出品品質」で戦うセラー</h4>
+                    <ul>
+                        <li>同じ商品でも先に、或いは高く売れる</li>
+                        <li>出品品質が高い</li>
+                        <li>出品数、頻度が高い</li>
+                        <li>商品回転率を重視している</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box reveal">
+            <div class="hb-label">💡 CORE INSIGHT</div>
+            <p>
+                海外バイヤーが支払っているプレミアム（上乗せ価格）は、商品そのものではなく<br>
+                「アカウントが持つ<strong>安心感と専門性</strong>」に対する対価。<br>
+                自分の立ち位置を知る。
+            </p>
+        </div>
+
+        <div class="grid-2 reveal">
+            <div class="card" style="padding:1.8rem;">
+                <h3 style="color:var(--blue-dark);margin-bottom:.9rem;font-size:1.1rem;">📈 eBay SEOの優位性</h3>
+                <p style="font-size:.97rem;color:var(--sub);line-height:1.85;">アカウント強度が高いと検索上位に継続表示されるため、価格が高くても競合より先に売れ、アカウント強度を爆発的に上げる「最高品質の燃料」になる。アカウント強度が上がったら、利益額は増えていく。</p>
+            </div>
+            <div class="card" style="padding:1.8rem;">
+                <h3 style="color:var(--blue-dark);margin-bottom:.9rem;font-size:1.1rem;">🛡️ 目標</h3>
+                <p style="font-size:.97rem;color:var(--sub);line-height:1.85;">アカウントが育つことで、販売相場そのものを自分でコントロールできるようになる。「このセラーなら高くても買う」という状態が最終目標。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 第2章 ── -->
+<section id="ch2">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-badge">第2章</div>
+            <h2>仕入れの「9大パラメータ」とポートフォリオの概念</h2>
+            <p>
+                「利益が出るから買う」→「ストア全体の資産配分のために買う」へ脳内シフト。<br>
+                各カードをクリックして詳細を確認しよう。
+            </p>
+        </div>
+
+        <div class="params-grid" id="paramsGrid"></div>
+        <div id="paramDetail" class="param-detail"></div>
+
+        <div class="highlight-box reveal" style="margin-top:2rem;">
+            <div class="hb-label">🔑 KEY CONCEPT</div>
+            <p>ひとつの仕入れが上記9つのパラメータにどう影響するかを<strong>常に逆算</strong>する。<br>点ではなく「面（ポートフォリオ）」で考えることがプロへの第一歩。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── 第3章 ── -->
+<section id="ch3" class="alt">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-badge">第3章</div>
+            <h2>目に見えない「間接経費（ステルスコスト）」の正体</h2>
+            <p>仕入れ値と送料だけでビジネスを計算していませんか？<br>経営の現実を直視しよう。</p>
+        </div>
+
+        <div class="cost-compare reveal">
+            <div class="cost-card">
+                <div class="cost-card-head bad">❌ 不具合品</div>
+                <div class="cost-card-body">
+                    <div class="cost-row">
+                        <span class="label">🔍 検品工数</span>
+                        <span class="val red">高い（カビ・傷チェック）</span>
+                    </div>
+                    <div class="cost-row">
+                        <span class="label">📷 撮影工数</span>
+                        <span class="val red">高い（欠点を写す必要あり）</span>
+                    </div>
+                    <div class="cost-row">
+                        <span class="label">📝 説明文工数</span>
+                        <span class="val red">高い（注意事項が多い）</span>
+                    </div>
+                    <div class="cost-row">
+                        <span class="label">💬 質問対応</span>
+                        <span class="val red">多い（バイヤーが不安）</span>
+                    </div>
+                    <div class="cost-row">
+                        <span class="label">🔄 返品リスク</span>
+                        <span class="val red">高い</span>
+                    </div>
+                    <div class="cost-row summary">
+                        <span class="label"><strong>総評</strong></span>
+                        <span class="val red">⚠️ 間接費が高い</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cost-card">
+                <div class="cost-card-head good">✅ 美品・完動品</div>
+                <div class="cost-card-body">
+                    <div class="cost-row">
+                        <span class="label">🔍 検品工数</span>
+                        <span class="val green">低い（美品確認のみ）</span>
+                    </div>
+                    <div class="cost-row">
+                        <span class="label">📷 撮影工数</span>
+                        <span class="val green">低い（基本枚数で完結）</span>
+                    </div>
+                    <div class="cost-row">
+                        <span class="label">📝 説明文工数</span>
+                        <span class="val green">低い（シンプルでOK）</span>
+                    </div>
+                    <div class="cost-row">
+                        <span class="label">💬 質問対応</span>
+                        <span class="val green">少ない（状態が明確）</span>
+                    </div>
+                    <div class="cost-row">
+                        <span class="label">🔄 返品リスク</span>
+                        <span class="val green">低い</span>
+                    </div>
+                    <div class="cost-row summary">
+                        <span class="label"><strong>総評</strong></span>
+                        <span class="val green">✅ 間接費が安い</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal" style="background:var(--white);border-radius:12px;padding:1.8rem;box-shadow:var(--shadow);margin-bottom:1.8rem;">
+            <h3 style="font-size:1.1rem;color:var(--blue-dark);margin-bottom:.9rem;">💡 結論：基本は　欲張らず「安く・早く」売る</h3>
+            <p style="font-size:.97rem;color:var(--sub);line-height:1.85;">低額品は利益率にこだわらず、回転速度を上げて在庫の滞留期間を減らすことで、結果的に間接費を最小限に抑え込むことができます。<strong>高い利益率に騙されず、利益額と工数のバランスを常に見ること。</strong></p>
+        </div>
+
+        <div class="highlight-box reveal" style="background:linear-gradient(135deg,#1565C0,#1976D2);">
+            <div class="hb-label">🎯 戦略的「スピード売却」の活用法</div>
+            <p>
+                状態が良い商品は間接経費が低い分、あえて相場価格（最安値圏）でサクッと売る選択肢もあり。<br>
+                → キャッシュが最速で回り、販売実績が積み上がり、<br>
+                アカウント強度を爆発的に上げる<strong>「最高品質の燃料」</strong>になる。<br>
+                アカウント強度が上がったら、利益額は増えていく。
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ── 第4章：チェックシート ── -->
+<section id="ch4">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-badge">第4章 ─ インタラクティブ</div>
+            <h2>迷いを断ち切る「仕入れ判断 3大チェックシート」</h2>
+            <p>実際の商品を思い浮かべながら、3つの質問に答えてみよう。</p>
+        </div>
+
+        <div class="checklist">
+            <div class="card check-card">
+                <div class="check-head">
+                    <div class="check-qnum">Q1</div>
+                    <h3>工数チェック ─ この商品は、私の貴重な時間をどれだけ奪うか？<br>（手間が少なく、10分以内で出品できそうですか？）</h3>
+                </div>
+                <div class="check-body">
+                    <p class="check-desc">
+                        ❌ 状態が悪く、検品・撮影・説明文に30分以上かかりそう → 間接費マイナス<br>
+                        ✅ 極上美品で5〜10分で出品完了できる → 間接費ボーナス
+                    </p>
+                    <div class="check-opts">
+                        <button class="check-btn yes-btn" onclick="answer(1,'yes')">✅ はい（手間が少ない）</button>
+                        <button class="check-btn no-btn" onclick="answer(1,'no')">❌ いいえ（手間がかかる）</button>
+                    </div>
+                    <div id="fb1" class="check-feedback"></div>
+                </div>
+            </div>
+
+            <div class="card check-card">
+                <div class="check-head">
+                    <div class="check-qnum">Q2</div>
+                    <h3>リスクチェック ─ この商品は、売れた後に私をビクビクさせるか？<br>（返品・クレームリスクが低いですか？）</h3>
+                </div>
+                <div class="check-body">
+                    <p class="check-desc">
+                        ❌ 動作未確認・ジャンク・クモリあり → Case Openリスク高 → 表面利益が良くても減点<br>
+                        ✅ 完動品・美品 → 返品リスクほぼゼロ → 加点
+                    </p>
+                    <div class="check-opts">
+                        <button class="check-btn yes-btn" onclick="answer(2,'yes')">✅ はい（リスクが低い）</button>
+                        <button class="check-btn no-btn" onclick="answer(2,'no')">❌ いいえ（リスクが高い）</button>
+                    </div>
+                    <div id="fb2" class="check-feedback"></div>
+                </div>
+            </div>
+
+            <div class="card check-card">
+                <div class="check-head">
+                    <div class="check-qnum">Q3</div>
+                    <h3>アルゴリズムチェック ─ この商品は、ストアの「活動エネルギー」になるか？<br>（毎日の出品数・出品頻度を維持するのに役立ちますか？）</h3>
+                </div>
+                <div class="check-body">
+                    <p class="check-desc">
+                        ✅ 手離れが良く「毎日の出品頻度」や「今週の出品数」をキープする弾数になる → eBay SEO維持のための「必要経費（投資）」として加点<br>
+                        ❌ 手離れが悪く出品頻度・数の維持が困難になる → アカウント強度への貢献なし
+                    </p>
+                    <div class="check-opts">
+                        <button class="check-btn yes-btn" onclick="answer(3,'yes')">✅ はい（SEO維持に有効）</button>
+                        <button class="check-btn no-btn" onclick="answer(3,'no')">❌ いいえ（あまり関係ない）</button>
+                    </div>
+                    <div id="fb3" class="check-feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verdict-box">
+            <h3>🔍 仕入れ判定結果</h3>
+            <div class="verdict-result pending" id="verdictResult">
+                3つの質問に答えると、判定が表示されます
+            </div>
+            <button class="reset-btn" onclick="resetChecklist()">🔄 リセット</button>
+        </div>
+
+        <div class="criteria-box reveal">
+            <h3>📋 仕入れ判定基準まとめ</h3>
+            <div class="criteria-list">
+                <div class="criteria-item go">
+                    <strong>🟢 即仕入れ（Go）</strong>
+                    手間がかからず（Q1✅）、返品リスクが低く（Q2✅）、利益が残る高額品。
+                </div>
+                <div class="criteria-item invest">
+                    <strong>🟡 戦略的仕入れ（投資Go）</strong>
+                    利益額は少なくても、手間がゼロで（Q1✅）、毎日の出品数・頻度（Q3✅）を維持してストア全体のSEOを底上げするための美品。
+                </div>
+                <div class="criteria-item nogo">
+                    <strong>🔴 仕入れ対象外（No-Go）</strong>
+                    利益率が高く見えても、手間がかかり（Q1❌）、返品リスクが高く（Q2❌）、自分の時給を削る「儲からない物販」の原因商品。
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ポートフォリオ ── -->
+<section id="portfolio" class="alt">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-badge">📊 ステージ別</div>
+            <h2>推奨ポートフォリオ比率（ストア内の商品配分）</h2>
+            <p>自分のステージをクリックして、理想の商品配分を確認しよう。</p>
+        </div>
+
+        <div class="port-tabs">
+            <button class="port-tab on" onclick="showPort('beginner', this)">🌱 初心者（月利〜10万）</button>
+            <button class="port-tab" onclick="showPort('mid', this)">📈 中級者（月利10〜30万）</button>
+            <button class="port-tab" onclick="showPort('adv', this)">🏆 上級者（月利30万〜）</button>
+        </div>
+
+        <div id="port-beginner" class="port-panel on">
+            <div class="port-legend">
+                <div class="leg-item"><div class="leg-dot" style="background:#1565C0;"></div>スピード・SEO維持（低額〜中額）</div>
+                <div class="leg-item"><div class="leg-dot" style="background:#2E7D32;"></div>じっくり利益を狙う（中額〜高額）</div>
+                <div class="leg-item"><div class="leg-dot" style="background:#F9A825;"></div>アカウント強度で勝つ（高額ニッチ）</div>
+            </div>
+            <div class="port-bar-wrap">
+                <div class="port-bar spd" style="width:60%">60%</div>
+                <div class="port-bar stdy" style="width:30%">30%</div>
+                <div class="port-bar niche" style="width:10%">10%</div>
+            </div>
+            <div class="port-advice">
+                <strong>🌱 初心者の意識すべきマインド</strong><br>
+                まずは状態の良い低額品を<strong>毎日出品</strong>し、新規出品頻度と実績（Feedback・Sales History）を作ることが最優先。利益よりも「アカウントを育てる行動」を最大化する。
+            </div>
+        </div>
+
+        <div id="port-mid" class="port-panel">
+            <div class="port-legend">
+                <div class="leg-item"><div class="leg-dot" style="background:#1565C0;"></div>スピード・SEO維持（低額〜中額）</div>
+                <div class="leg-item"><div class="leg-dot" style="background:#2E7D32;"></div>じっくり利益を狙う（中額〜高額）</div>
+                <div class="leg-item"><div class="leg-dot" style="background:#F9A825;"></div>アカウント強度で勝つ（高額ニッチ）</div>
+            </div>
+            <div class="port-bar-wrap">
+                <div class="port-bar spd" style="width:30%">30%</div>
+                <div class="port-bar stdy" style="width:50%">50%</div>
+                <div class="port-bar niche" style="width:20%">20%</div>
+            </div>
+            <div class="port-advice">
+                <strong>📈 中級者の意識すべきマインド</strong><br>
+                無駄な労働工数を削り、<strong>「即決の型」</strong>を作ってベースを安定させる。定番品で利益を積み重ねながら、高額ニッチへの比率を徐々に上げていく段階。
+            </div>
+        </div>
+
+        <div id="port-adv" class="port-panel">
+            <div class="port-legend">
+                <div class="leg-item"><div class="leg-dot" style="background:#1565C0;"></div>スピード・SEO維持（低額〜中額）</div>
+                <div class="leg-item"><div class="leg-dot" style="background:#2E7D32;"></div>じっくり利益を狙う（中額〜高額）</div>
+                <div class="leg-item"><div class="leg-dot" style="background:#F9A825;"></div>アカウント強度で勝つ（高額ニッチ）</div>
+            </div>
+            <div class="port-bar-wrap">
+                <div class="port-bar spd" style="width:10%">10%</div>
+                <div class="port-bar stdy" style="width:40%">40%</div>
+                <div class="port-bar niche" style="width:50%">50%</div>
+            </div>
+            <div class="port-advice">
+                <strong>🏆 上級者の意識すべきマインド</strong><br>
+                露出（出品数・頻度）をキープしつつ、<strong>アカウント強度で高額品を高く売る</strong>ことに集中。蓄積したアカウント資産を最大活用して、価格競争から完全脱却する。
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <p>JES勉強会 2026.06.29 ─ 「儲からない」物販から脱却！アカウント強度で稼ぐ仕入れポートフォリオ戦略</p>
+    <p>© JES eBayスクール</p>
+</footer>
+
+<script>
+/* ── 9大パラメータ データ ── */
+const params = [
+    {
+        icon: '💰', name: '価格帯', tag: 'バランス',
+        detail: '低価格帯（実績作り・SEO維持）〜高価格帯（利益最大化）のバランスを意識する。初心者は低〜中額を多めに仕入れ、上級者になるほど高額ニッチへの比率を上げていく。'
+    },
+    {
+        icon: '⭐', name: 'コンディション', tag: '品質管理',
+        detail: 'ジャンク・並品・美品・新品それぞれに役割がある。ジャンクは価格帯によってはリスク大。美品は間接経費が低く「スピード売却の燃料」として理想的。コンディション管理が利益の質を決める。'
+    },
+    {
+        icon: '⏱️', name: '工数', tag: '時間管理',
+        detail: 'リサーチ・検品・撮影・出品・顧客対応にかかる時間の総量。工数が多い商品は利益率が高くても時給が下がる。「間接経費（ステルスコスト）」の最大の正体がこれ。仕入れ前に工数を見積もる習慣をつける。'
+    },
+    {
+        icon: '💳', name: '資金', tag: 'キャッシュ',
+        detail: 'キャッシュフロー、クレジットカードの枠と回転速度。低額品を大量回転させる戦略と高額品を少数扱う戦略では、必要資金の性質が大きく異なる。在庫の滞留期間を意識してキャッシュを常に流動させること。'
+    },
+    {
+        icon: '🏭', name: 'メーカー', tag: '合わせ買い',
+        detail: '特定メーカーに絞ることで、バイヤーの「店舗内滞在時間」を延長させる戦略。「このセラーはこのメーカーに強い」という専門性がアカウント強度を高め、リピーターを生む。'
+    },
+    {
+        icon: '📈', name: 'アカウント成長', tag: '実績蓄積',
+        detail: 'Feedback数と販売実績の蓄積。これが増えるほどeBay SEOでの評価が上がり、ストア全体の露出が増加する。毎日の出品と迅速な対応が積み重なって生まれる資産。'
+    },
+    {
+        icon: '💪', name: 'アカウント強度', tag: 'SEO優位性',
+        detail: 'SEOアルゴリズムへの好影響と、将来的な販売相場の上昇。育てるほど「高く売れる状態」が維持される、ストア最大の資産。短期利益より長期のアカウント強化を優先することが、真のプロセラーへの道。'
+    },
+    {
+        icon: '📦', name: '新規出品数', tag: '弾数',
+        detail: 'ストア全体のインプレッションを押し上げるための「弾数」。出品数が増えるほどストアの露出面積が広がり、検索でヒットする機会が増加する。利益が小さくても弾数確保のための仕入れは「投資」として考える。'
+    },
+    {
+        icon: '🔄', name: '出品頻度', tag: '活動性',
+        detail: 'eBayアルゴリズム（Cassini）に「活動的なセラー」と認識させるための継続性。毎日出品することでアルゴリズムからの優遇が続く。数日間出品が止まるとストア全体の露出が落ちるため、頻度の維持は最重要。'
+    }
+];
+
+/* パラメータグリッド生成 */
+const grid = document.getElementById('paramsGrid');
+const detailBox = document.getElementById('paramDetail');
+let activeIdx = null;
+
+params.forEach((p, i) => {
+    const el = document.createElement('div');
+    el.className = 'param-item reveal';
+    el.innerHTML = `
+        <div class="param-icon">${p.icon}</div>
+        <div class="param-name">${p.name}</div>
+        <div class="param-tag">${p.tag}</div>
+    `;
+    el.addEventListener('click', () => {
+        const isOn = activeIdx === i;
+        document.querySelectorAll('.param-item').forEach(x => x.classList.remove('on'));
+        if (!isOn) {
+            el.classList.add('on');
+            activeIdx = i;
+            detailBox.innerHTML = `<h3>${p.icon} ${p.name}（${p.tag}）</h3><p>${p.detail}</p>`;
+            detailBox.classList.add('show');
+            detailBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+            activeIdx = null;
+            detailBox.classList.remove('show');
+        }
+    });
+    grid.appendChild(el);
+});
+
+/* ── チェックシート ── */
+const answers = { 1: null, 2: null, 3: null };
+
+const feedbacks = {
+    1: {
+        yes: { cls: 'pass', txt: '✅ <strong>Q1クリア！</strong> 手間が少ない商品は「間接費ボーナス」。10分以内で出品完了できるなら、仕入れの第一条件をクリアしています。' },
+        no:  { cls: 'fail', txt: '❌ <strong>Q1アウト。</strong> 手間がかかる商品は、利益率が高く見えても時給を著しく下げます。原則として仕入れ対象外とすることを強く推奨します。' }
+    },
+    2: {
+        yes: { cls: 'pass', txt: '✅ <strong>Q2クリア！</strong> 返品・クレームリスクが低い商品はCase対応のストレスがなく、アカウント評価も安定します。' },
+        no:  { cls: 'fail', txt: '⚠️ <strong>Q2注意。</strong> 返品・Case Openリスクが高い商品は、表面利益が良くても減点要因。特にジャンク品・動作未確認品は慎重に。' }
+    },
+    3: {
+        yes: { cls: 'pass', txt: '✅ <strong>Q3加点！</strong> 毎日の出品頻度を維持する弾数になる商品は、eBay Cassiniへの「必要経費（投資）」。ストア全体のSEOを底上げします。' },
+        no:  { cls: 'fail', txt: '⚠️ <strong>Q3：SEO効果なし。</strong> 出品頻度維持に貢献しない場合、アカウント強度への投資効果は限定的です。利益額が十分かどうかを確認してください。' }
+    }
+};
+
+function answer(q, val) {
+    answers[q] = val;
+
+    const fb = document.getElementById('fb' + q);
+    const { cls, txt } = feedbacks[q][val];
+    fb.className = 'check-feedback ' + cls;
+    fb.innerHTML = txt;
+
+    const opts = fb.previousElementSibling;
+    opts.querySelectorAll('.check-btn').forEach(b => {
+        b.classList.remove('sel');
+        if ((val === 'yes' && b.classList.contains('yes-btn')) ||
+            (val === 'no'  && b.classList.contains('no-btn'))) {
+            b.classList.add('sel');
+        }
+    });
+
+    updateVerdict();
+}
+
+function updateVerdict() {
+    const el = document.getElementById('verdictResult');
+    const a1 = answers[1], a2 = answers[2], a3 = answers[3];
+    const filled = [a1, a2, a3].filter(Boolean).length;
+
+    if (filled < 3) {
+        el.className = 'verdict-result pending';
+        el.innerHTML = filled === 0
+            ? '3つの質問に答えると、判定が表示されます'
+            : `${filled} / 3 の質問に回答済み ─ 残り ${3 - filled} 問に答えてください`;
+        return;
+    }
+
+    if (a1 === 'yes' && a2 === 'yes') {
+        el.className = 'verdict-result go';
+        el.innerHTML = '🟢 即仕入れ GO！<div class="verdict-sub">手間が少なく・リスクが低い。利益が残るなら迷わず仕入れ！</div>';
+    } else if (a1 === 'yes' && a3 === 'yes') {
+        el.className = 'verdict-result invest';
+        el.innerHTML = '🟡 戦略的仕入れ（投資Go）<div class="verdict-sub">利益は少なくてもSEO維持の弾数として活用。ストア強化への投資として仕入れあり。</div>';
+    } else if (a1 === 'no') {
+        el.className = 'verdict-result nogo';
+        el.innerHTML = '🔴 仕入れ対象外（No-Go）<div class="verdict-sub">手間がかかる時点でアウト。利益率に騙されないこと。自分の時給を削る商品です。</div>';
+    } else {
+        el.className = 'verdict-result nogo';
+        el.innerHTML = '🔴 仕入れ対象外（No-Go）<div class="verdict-sub">リスクとSEO効果のバランスが取れていません。別の商品を検討しましょう。</div>';
+    }
+}
+
+function resetChecklist() {
+    answers[1] = answers[2] = answers[3] = null;
+    [1, 2, 3].forEach(q => {
+        const fb = document.getElementById('fb' + q);
+        fb.className = 'check-feedback';
+        fb.innerHTML = '';
+    });
+    document.querySelectorAll('.check-btn').forEach(b => b.classList.remove('sel'));
+    const el = document.getElementById('verdictResult');
+    el.className = 'verdict-result pending';
+    el.textContent = '3つの質問に答えると、判定が表示されます';
+}
+
+/* ── ポートフォリオタブ ── */
+function showPort(id, btn) {
+    document.querySelectorAll('.port-panel').forEach(p => p.classList.remove('on'));
+    document.querySelectorAll('.port-tab').forEach(b => b.classList.remove('on'));
+    document.getElementById('port-' + id).classList.add('on');
+    btn.classList.add('on');
+}
+
+/* ── スクロールリビール ── */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('vis');
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── ナビ アクティブ ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+
+const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            navLinks.forEach(a => {
+                a.style.borderBottomColor = a.getAttribute('href') === '#' + e.target.id ? 'var(--gold)' : 'transparent';
+                a.style.color = a.getAttribute('href') === '#' + e.target.id ? '#fff' : 'rgba(255,255,255,.72)';
+            });
+        }
+    });
+}, { rootMargin: '-40% 0px -55% 0px' });
+
+sections.forEach(s => navObserver.observe(s));
+</script>
+</body>
+</html>
